@@ -1,4 +1,4 @@
-from receiver.core.exceptions import InternalException
+from Lib.receiver.core.exceptions import InternalException
 
 __author__ = 'bulat.fattahov'
 

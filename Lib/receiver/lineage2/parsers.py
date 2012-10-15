@@ -2,17 +2,17 @@ __author__ = 'bulat.fattahov'
 
 import sys
 import lxml.html
-import receiver.core.parsers
-from receiver.core.parsers import  Parser
-from receiver.core.factories import FromDictFactory
-from receiver.lineage2.pageTypes import PageType
+import Lib.receiver.core.parsers
+from Lib.receiver.core.parsers import  Parser
+from Lib.receiver.core.factories import FromDictFactory
+from Lib.receiver.lineage2.pageTypes import PageType
 
 
 class Lineage2ParserFactory(FromDictFactory):
     names = {PageType.LIST_LOG : "ListLogParser"}
 
     # where we will look for parsers: in defaults and in this file
-    whereToSeek = [receiver.core.parsers,
+    whereToSeek = [Lib.receiver.core.parsers,
                    sys.modules[__name__]]
 
     def getForPage(self, page):

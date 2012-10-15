@@ -1,21 +1,21 @@
 # coding=utf-8
 from urllib2 import HTTPError
-from receiver.core.adaptors import Adaptor
-from receiver.core.exceptions import LoginException
-from receiver.core.handlers import Handler
-from receiver.core.initializers import Initializer
-from receiver.core.parsers import Parser
-from receiver.core.urlCreators import UrlCreator
-from receiver.lineage2.adaptors import Lineage2AdaptorFactory
-from receiver.lineage2.handlers import Lineage2HandlerFactory
-from receiver.lineage2.initializers import Lineage2InitializerFactory
-from receiver.lineage2.pageTypes import PageType
-from receiver.core.receivers import NotLoggedInException, Receiver
-from receiver.core.strategy import Page
-from receiver.core.supports import EuroSupport
-from receiver.lineage2.parsers import Lineage2ParserFactory
-from receiver.lineage2.receivers import Lineage2ReceiverFactory
-from receiver.lineage2.urlCreators import Lineage2UrlCreatorFactory
+from Lib.receiver.core.adaptors import Adaptor
+from Lib.receiver.core.exceptions import LoginException
+from Lib.receiver.core.handlers import Handler
+from Lib.receiver.core.initializers import Initializer
+from Lib.receiver.core.parsers import Parser
+from Lib.receiver.core.urlCreators import UrlCreator
+from Lib.receiver.lineage2.adaptors import Lineage2AdaptorFactory
+from Lib.receiver.lineage2.handlers import Lineage2HandlerFactory
+from Lib.receiver.lineage2.initializers import Lineage2InitializerFactory
+from Lib.receiver.lineage2.pageTypes import PageType
+from Lib.receiver.core.receivers import NotLoggedInException, Receiver
+from Lib.receiver.core.strategy import Page
+from Lib.receiver.core.supports import EuroSupport
+from Lib.receiver.lineage2.parsers import Lineage2ParserFactory
+from Lib.receiver.lineage2.receivers import Lineage2ReceiverFactory
+from Lib.receiver.lineage2.urlCreators import Lineage2UrlCreatorFactory
 
 UrlCreator.setFactory(Lineage2UrlCreatorFactory())
 Adaptor.setFactory(Lineage2AdaptorFactory())

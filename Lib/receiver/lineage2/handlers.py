@@ -1,28 +1,27 @@
 # coding=utf-8
-from receiver.lineage2.pageTypes import PageType
-from receiver.lineage2.urlCreators import ListLogUrlCreator
+from Lib.receiver.lineage2.pageTypes import PageType
 
 __author__ = 'bulat.fattahov'
 import sys
-import receiver.core.handlers
-from receiver.core.factories import FromDictFactory
+import Lib.receiver.core.handlers
+from Lib.receiver.core.factories import FromDictFactory
 
 
 class Lineage2HandlerFactory(FromDictFactory):
     names = {PageType.LIST_LOG: 'Lineage2ListLogHandler'}
 
     # where we will look for handlers: in defaults and in this file
-    whereToSeek = [receiver.core.handlers,
+    whereToSeek = [Lib.receiver.core.handlers,
                    sys.modules[__name__]]
 
 #=====================================================
 
 
-class Lineage2ListLogHandler(receiver.core.handlers.DefaultHandler):
+class Lineage2ListLogHandler(Lib.receiver.core.handlers.DefaultHandler):
     LOGS_BY_PAGE = 500
 
     def __init__(self, page):
-        receiver.core.handlers.DefaultHandler.__init__(self, page)
+        Lib.receiver.core.handlers.DefaultHandler.__init__(self, page)
 
     def handle(self, par=None, callbacks=None):
         #        инициализация страницы

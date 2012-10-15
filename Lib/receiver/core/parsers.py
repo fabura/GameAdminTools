@@ -1,7 +1,7 @@
 # coding=utf-8
 __author__ = 'bulat.fattahov'
-from receiver.core.exceptions import InternalException
-from receiver.core.factories import Factory
+from Lib.receiver.core.exceptions import InternalException
+from Lib.receiver.core.factories import Factory
 
 
 class Parser():

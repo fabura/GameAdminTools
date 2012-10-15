@@ -1,9 +1,9 @@
 import re
-from receiver.core.exceptions import InternalException
-from receiver.core.factories import Factory, FromDictFactory
-from receiver.core.urlCreators import UrlCreator, WithoutInitializationUrlCreator, DefaultUrlCreator
-from receiver.lineage2.pageTypes import PageType
-import  receiver.core.urlCreators
+from Lib.receiver.core.exceptions import InternalException
+from Lib.receiver.core.factories import  FromDictFactory
+from Lib.receiver.core.urlCreators import UrlCreator
+from Lib.receiver.lineage2.pageTypes import PageType
+import  Lib.receiver.core.urlCreators
 import sys
 
 __author__ = 'bulat.fattahov'
@@ -37,7 +37,7 @@ class Lineage2UrlCreatorFactory(FromDictFactory):
     }
 
     def __init__(self):
-        self.whereToSeek = [receiver.core.urlCreators,
+        self.whereToSeek = [Lib.receiver.core.urlCreators,
                             sys.modules[__name__]]
 
 

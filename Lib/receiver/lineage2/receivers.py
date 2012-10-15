@@ -2,17 +2,17 @@ import urllib
 
 __author__ = 'bulat.fattahov'
 import sys
-import receiver.core.receivers
-from receiver.core.receivers import Receiver
-from receiver.core.factories import FromDictFactory
-from receiver.lineage2.pageTypes import PageType
+import Lib.receiver.core.receivers
+from Lib.receiver.core.receivers import Receiver
+from Lib.receiver.core.factories import FromDictFactory
+from Lib.receiver.lineage2.pageTypes import PageType
 
 
 class Lineage2ReceiverFactory(FromDictFactory):
     names = {PageType.LOGIN_PAGE: 'LoginReceiver'}
 
     # where we will look for receivers: in defaults and in this file
-    whereToSeek = [receiver.core.receivers,
+    whereToSeek = [Lib.receiver.core.receivers,
                    sys.modules[__name__]]
 
 #=====================================================

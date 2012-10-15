@@ -1,11 +1,11 @@
 # coding=utf-8
-from receiver.core.adaptors import Adaptor
-from receiver.core.exceptions import InternalException
-from receiver.core.factories import Factory
-from receiver.core.initializers import Initializer
-from receiver.core.parsers import Parser
-from receiver.core.receivers import  Receiver
-from receiver.core.urlCreators import UrlCreator
+from Lib.receiver.core.adaptors import Adaptor
+from Lib.receiver.core.exceptions import InternalException
+from Lib.receiver.core.factories import Factory
+from Lib.receiver.core.initializers import Initializer
+from Lib.receiver.core.parsers import Parser
+from Lib.receiver.core.receivers import  Receiver
+from Lib.receiver.core.urlCreators import UrlCreator
 
 __author__ = 'bulat.fattahov'
 

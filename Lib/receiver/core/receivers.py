@@ -1,8 +1,7 @@
 import re
 import urllib
-from receiver.core.exceptions import NotLoggedInException, InternalException
-from receiver.core.factories import Factory
-from receiver.lineage2.pageTypes import PageType
+from Lib.receiver.core.exceptions import NotLoggedInException, InternalException
+from Lib.receiver.core.factories import Factory
 
 __author__ = 'bulat.fattahov'
 

@@ -1,5 +1,5 @@
 # coding=utf-8
-from receiver.core.handlers import Handler
+from Lib.receiver.core.handlers import Handler
 
 __author__ = 'bulat.fattahov'
 

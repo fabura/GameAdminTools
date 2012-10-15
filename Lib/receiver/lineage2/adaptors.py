@@ -1,13 +1,12 @@
 import datetime
-from time import strftime
-from receiver.lineage2.handlers import Lineage2ListLogHandler
+from Lib.receiver.lineage2.handlers import Lineage2ListLogHandler
 
 __author__ = 'bulat.fattahov'
 import sys
-from receiver.core.adaptors import Adaptor, DefaultAdaptor
-from receiver.core.factories import Factory, FromDictFactory
-from receiver.lineage2.pageTypes import PageType
-import receiver.core.adaptors
+from Lib.receiver.core.adaptors import Adaptor, DefaultAdaptor
+from Lib.receiver.core.factories import  FromDictFactory
+from Lib.receiver.lineage2.pageTypes import PageType
+import Lib.receiver.core.adaptors
 
 
 class Lineage2AdaptorFactory(FromDictFactory):
@@ -16,7 +15,7 @@ class Lineage2AdaptorFactory(FromDictFactory):
              PageType.PAGE_WITHOUT_INITIALIZATION: "WithoutInitializationAdaptor"}
 
     # where we will look for adaptors: in defaults and in this file
-    whereToSeek = [receiver.core.adaptors,
+    whereToSeek = [Lib.receiver.core.adaptors,
                    sys.modules[__name__]]
 
 #=====================================================
