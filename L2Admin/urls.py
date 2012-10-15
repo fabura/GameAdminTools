@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'L2Admin.views.home', name='home'),
     # url(r'^L2Admin/', include('L2Admin.foo.urls')),
-
+    url(r'^users/', include('web.users.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
