@@ -2,7 +2,7 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url series.users.views.register %}" method="post">
+<form action="{% url web.users.views.register %}" method="post">
     {% csrf_token %}
     <label for="username">Имя пользователя</label>
     <br/>

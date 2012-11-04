@@ -9,7 +9,8 @@ from Lib.receiver.lineage2.pageTypes import PageType
 
 
 class Lineage2ParserFactory(FromDictFactory):
-    names = {PageType.LIST_LOG : "ListLogParser"}
+    names = {PageType.LIST_LOG: "ListLogParser",
+             PageType.AMOUNT_BY_ITEM_TYPE_AND_SERVER: "ItemAmountParser"}
 
     # where we will look for parsers: in defaults and in this file
     whereToSeek = [Lib.receiver.core.parsers,
@@ -54,3 +55,14 @@ class ListLogParser(Lineage2DefaultParser):
                 self.naviUrl = url
         return page_str
 
+
+class ItemAmountParser(Lineage2DefaultParser):
+    def parse(self, page_str):
+        page_str = Lineage2DefaultParser.parse(self, page_str)
+        no_result = self.lxlmldoc.xpath('//*[@id="ListItemByType"]/table[2]/tbody/tr[3]/td')
+        if (no_result and no_result[0].text == 'There is no result.'):
+            return 0
+        amount = self.lxlmldoc.xpath('//*[@id="ListItemByType"]/table[2]/tr[3]/td[6]')
+        if (amount and amount.__len__() and amount[0].text):
+            return amount[0].text.replace(',', '')
+        return amount

@@ -40,6 +40,20 @@ class Lineage2UrlCreatorFactory(FromDictFactory):
         self.whereToSeek = [Lib.receiver.core.urlCreators,
                             sys.modules[__name__]]
 
+    def getForPage(self, page):
+        object = FromDictFactory.getForPage(self, page)
+    # provide our default url creator if not found
+        if not object:
+            return Lineage2DefaultUrlCreator(page)
+        return object
+
+class Lineage2DefaultUrlCreator(UrlCreator):
+    defaultServerId = '71'
+
+    def createUrl(self, params):
+        serverId = (str)(params['worldList']) if (params and 'worldList' in params) else self.defaultServerId
+        return UrlCreator.createUrl(self, params) + '?WorldId=' + serverId
+
 
 class ListLogUrlCreator(UrlCreator):
     naviUrl = None

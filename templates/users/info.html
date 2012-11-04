@@ -1,0 +1,16 @@
+<h1>Изменение информации об Игровом мастере</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url web.users.views.user_info %}" method="post">
+{{   form.as_ul }}
+    {% csrf_token %}
+    <label for="l2admin_login">Логин в админку</label>
+    <br/>
+    <input type="text" name="l2admin_login" id="l2admin_login"/>
+    <label for="l2admin_password">Пароль в админку</label><br/>
+    <br>
+    <input type="text" name="l2admin_password" id="l2admin_password"/>
+    <br>
+    <input type="submit" value="Сохранить данные"/>
+</form>
