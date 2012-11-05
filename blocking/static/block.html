@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>Блокировки</title>
+    <script type="text/javascript" src="/static/scripts/angularjs/angular.js"></script>
+    <script type="text/javascript" src="/static/scripts/block.js"></script>
+</head>
+<body ng-app="BlockApp">
+<div ng-controller="BlockCtrl">
+    <input type="text" ng-model="message.title" placeholder="Введите заголовок">
+    <textarea name="message" id="message_text" cols="30" rows="10" placeholder="Текст сообщения" ng-model="message.text"></textarea>
+    <span>{{ message.text + message.title }}</span>
+</div>
+</body>
+</html>

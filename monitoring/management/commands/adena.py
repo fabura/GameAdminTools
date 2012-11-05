@@ -1,18 +1,20 @@
+from Lib.receiver.core.supports import EuroSupport
+from monitoring.models import AdenaLog
+
 __author__ = 'bulat.fattahov'
+from Lib.receiver.lineage2.L2AdminFacade import L2AdminFacade
 from django.core.management.base import BaseCommand, CommandError
 
 class Command(BaseCommand):
-    args = '<poll_id poll_id ...>'
-    help = 'Closes the specified poll for voting'
-
     def handle(self, *args, **options):
-        for poll_id in args:
-            try:
-                poll = Poll.objects.get(pk=int(poll_id))
-            except Poll.DoesNotExist:
-                raise CommandError('Poll "%s" does not exist' % poll_id)
+        try:
+            support = EuroSupport(login='bulat.fattahov', password='1qaz2wsx')
+            l2_facade = L2AdminFacade(support)
 
-            poll.opened = False
-            poll.save()
+            adena = l2_facade.get_adena(71)
+            adenaLog = AdenaLog.objects.create(value=adena, server=71)
+            adenaLog.save()
+            self.stdout.write('Adena count successfully logged "%s"' % adena)
+        except Exception as er:
+            self.stderr.write(er.message)
 
-            self.stdout.write('Successfully closed poll "%s"' % poll_id)

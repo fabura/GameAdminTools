@@ -1,0 +1,461 @@
+/*.selected-true {*/
+    /*background: #adff2f;*/
+/*}*/
+
+html, body {
+    height: 100%;
+}
+
+#content {
+    position: relative;
+    min-height: 100%;
+}
+
+* html #content {
+    height: 100%;
+}
+
+.text {
+    color: #ffffff;
+    font-family: "lobster";
+    font-size: 18pt;
+    font-weight: normal;
+    text-align: left;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 19px;
+    left: 11px;
+}
+
+.text-1 {
+    color: #ffffff;
+    font-family: "helvetica";
+    font-size: 11pt;
+    font-weight: 300;
+    text-align: left;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.46);
+    position: absolute;
+    top: 22px;
+    left: 673px;
+}
+
+.text-2 {
+    color: #ffffff;
+    font-family: "helvetica";
+    font-size: 11pt;
+    font-weight: 300;
+    text-align: left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.94);
+    position: absolute;
+    top: 23px;
+    left: 746px;
+}
+
+.text-3 {
+    color: #ffffff;
+    font-family: "helvetica";
+    font-size: 11pt;
+    font-weight: 300;
+    text-align: left;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.94);
+    position: absolute;
+    top: 23px;
+    left: 863px;
+}
+
+.textinput-1 {
+    width: 207px;
+    height: 18px;
+    padding: 5px 8px;
+    font-size: 12pt;
+    font-family: 'Helvetica Neue';
+    color: rgb(51, 51, 51);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 3px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    -o-box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    font-weight: normal;
+    position: absolute;
+    top: 70px;
+    left: 69px;
+}
+
+.textinput {
+    width: 207px;
+    height: 18px;
+    padding: 5px 8px;
+    font-size: 12pt;
+    font-family: 'Helvetica Neue';
+    color: rgb(51, 51, 51);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 3px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    -o-box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    font-weight: normal;
+    position: absolute;
+    top: 40px;
+    left: 69px;
+}
+
+
+.textarea {
+    width: 267px;
+    min-height: 38px;
+    padding: 5px 8px;
+    font-size: 12pt;
+    font-family: 'Helvetica Neue';
+    color: rgb(51, 51, 51);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 3px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    -o-box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 8px 0 inset;
+    font-weight: normal;
+    text-align: left;
+    position: absolute;
+    top: 103px;
+    left: 5px;
+}
+
+
+.sub-header {
+    padding: 10px;
+    background: #3b424b;
+    background-image: -moz-linear-gradient(top, #3b424b 0%, #343a42 100%);
+    background-image: -webkit-linear-gradient(top, #3b424b 0%, #343a42 100%);
+    background-image: -o-linear-gradient(top, #3b424b 0%, #343a42 100%);
+    background-image: linear-gradient(top, #3b424b 0%, #343a42 100%);
+    border: 1px solid #4d5662;
+    width: 960px;
+    height: 40px;
+    position: relative;
+    left: 0;
+}
+
+.footer {
+    background: #262a30;
+    border: 1px solid #282829;
+    -moz-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.7);
+    -o-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.7);
+    width: 960px;
+    height: 30px;
+    margin-top: -152px;
+    position: relative;
+    /*top: 1344px;*/
+    /*left: -9px;*/
+}
+
+.footer-text {
+    color: #ffffff;
+    font-family: "lobster";
+    font-size: 14pt;
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    text-shadow: 0 1px 1px #000000;
+    line-height: 30px;
+}
+
+.icon-1 {
+    font-size: 16px;
+    height: 17px;
+    width: 16px;
+    /*position: absolute;*/
+    top: 9px;
+    margin-right: -26px;
+    margin-left: 9px;
+}
+
+.icon-save {
+    font-size: 16px;
+    height: 17px;
+    width: 16px;
+    /*position: absolute;*/
+    top: 9px;
+    margin-right: -26px;
+    margin-left: 9px;
+}
+
+.column {
+    /*background: #ddd26b;*/
+    border: none;
+    margin: 0 !important;
+    height: 100% !important;
+    width: 320px !important;
+}
+
+.first {
+    background: #ffed76;
+    /*margin-left: 640px;*/
+    position: relative;
+    box-shadow: inset 0 3px 3px 1px rgba(255, 255, 255, 0.3);
+}
+
+.second {
+    background: #BEF56E;
+    border: none;
+    margin-left: 320px;
+    margin-top: -2px;
+    box-shadow: inset 1px 3px 3px 1px rgba(255, 255, 255, 0.3);
+}
+
+.third {
+    background: #6CC9BF;
+    border: none;
+    position: relative;
+    box-shadow: inset 1px 3px 3px 1px rgba(255, 255, 255, 0.3);
+}
+
+.column > div {
+    border: none;
+    -moz-box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    -webkit-box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    -o-box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    min-height: 36px;
+    line-height: 36px;
+    font-family: helvetica;
+    border: none;
+    font-size: 12pt;
+    overflow: hidden;
+    font-weight: bold;
+    text-align: right;
+    color: rgb(51, 51, 51);
+    font-style: italic;
+    padding-right: 30px;
+}
+
+.selected-true {
+    background: #003366;
+}
+
+.first > .selected-true {
+    border: none;
+    -moz-box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    -webkit-box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    -o-box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    min-height: 157px;
+    height: auto;
+    position: relative;
+    padding-right: 30px;
+}
+
+.first > .selected-true {
+    background: #BEF56E;
+}
+
+.second > .selected-true {
+    background: #6CC9BF;
+}
+
+.third > .selected-true {
+    background: #ffffff;
+}
+
+.third  .checkbox {
+    float: left ;
+    margin: 9px;
+    width: 15px;
+    height: 18px;
+}
+
+.dom-heading-1 {
+    width: 156px;
+    height: 32px;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'andale mono';
+    border: none;
+    font-size: 15pt;
+    overflow: hidden;
+    font-weight: 500;
+    text-align: left;
+    line-height: 1.2;
+    color: rgb(217, 217, 217);
+    font-style: italic;
+    position: absolute;
+    top: 4px;
+    left: 756px;
+}
+
+.dom-heading-2 {
+    width: 156px;
+    height: 32px;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'andale mono';
+    border: none;
+    font-size: 15pt;
+    overflow: hidden;
+    font-weight: 500;
+    text-align: left;
+    line-height: 1.2;
+    color: rgb(217, 217, 217);
+    font-style: italic;
+    position: absolute;
+    top: 4px;
+    left: 428px;
+}
+
+.dom-heading-3 {
+    width: 156px;
+    height: 32px;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'andale mono';
+    border: none;
+    font-size: 15pt;
+    overflow: hidden;
+    font-weight: 500;
+    text-align: left;
+    line-height: 1.2;
+    color: rgb(217, 217, 217);
+    font-style: italic;
+    position: absolute;
+    top: 4px;
+    left: 108px;
+}
+
+.content {
+}
+
+.full-height {
+    height: 100%;
+}
+
+.visible-false {
+    display: none;
+}
+
+.container-cleaner {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.icon {
+    font-size: 11px;
+    height: 16px;
+    width: 11px;
+    margin: 5px 0 0 362px;
+}
+  /*asdfasdf*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+#page-wrapper {
+    position: relative;
+    width: 960px;
+    /* centers the document */
+    margin: 0 auto;
+    /*
+    hides anything drawn off canvas.
+    remove overflow and height to see things drawn off canvas.
+    */
+    overflow: hidden;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.rectangle {
+    background: #262a30;
+    border: none;
+    -moz-box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 -2px 2px 0 rgba(0, 0, 0, 0.35);
+    -webkit-box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 -2px 2px 0 rgba(0, 0, 0, 0.35);
+    -o-box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 -2px 2px 0 rgba(0, 0, 0, 0.35);
+    box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.7), inset 0 -2px 2px 0 rgba(0, 0, 0, 0.35);
+    width: 960px;
+    height: 60px;
+    position: relative;
+    top: 0;
+    left: -1px;
+}
+
+.message-box {
+    background: #80ccff;
+    border: none;
+    -moz-box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    -webkit-box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    -o-box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.7);
+    width: 384px;
+    height: 30px;
+    position: absolute;
+    top: 1px;
+    left: 251px;
+}
+
+.message {
+    width: 320px;
+    height: 32px;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: helvetica;
+    border: none;
+    font-size: 12pt;
+    overflow: hidden;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1.2;
+    color: rgb(51, 51, 51);
+    font-style: italic;
+    position: absolute;
+    top: 7px;
+    left: 26px;
+}
+
+
+.image {
+    width: 26px;
+    height: 32px;
+    position: absolute;
+    top: 2px;
+    left: 5px;
+}
+
+
+.image-1 {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 1px;
+    left: 4px;
+}
+
+
+/*
+Using this css requires Font Awesome:
+http://fortawesome.github.com/Font-Awesome/
+*/
+
+.image-2 {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 39px;
+    left: 5px;
+}
+
+.column-bottom {
+    position: absolute;
+    bottom: 140px !important;
+    padding: 10px !important;
+    padding-right: 10px !important;
+    width: 300px;
+}
+
+.second .column-bottom {
+    margin-bottom:  -122px;
+}

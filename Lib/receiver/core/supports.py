@@ -15,7 +15,7 @@ class Support():
     def getBaseUrl(self):
         return self._baseUrl
 
-    def __init__(self, login='bulat.fattahov', password='1qaz2wsx'):
+    def __init__(self, login, password):
         self.login_name = login
         self.password = password
 
@@ -44,15 +44,13 @@ class Support():
         return self.password
 
 class EuroSupport(Support):
-    def __init__(self, login='bulat.fattahov', password='1qaz2wsx'):
-        Support.__init__(self)
-        self.login = login
-        self.password = password
+    def __init__(self, login, password):
+        Support.__init__(self, login, password)
         self._baseUrl = 'http://10.64.144.50'
 
 
 class RuSupport(Support):
-    def __init__(self, login='bulat.fattahov', password='1qaz2wsx'):
+    def __init__(self, login, password):
         Support.__init__(self, login, password)
         #        todo u'добавить адрес русской админки'
         self._baseUrl = 'http://10.64.144.50'

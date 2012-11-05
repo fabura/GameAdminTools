@@ -34,12 +34,12 @@ def tryToLoggedIn():
                 else:
                     raise InternalException(message="Support is not defined!")
 
-            #            логинимся
+                    #            логинимся
                 login_page = Page(support, PageType.LOGIN_PAGE)
                 try:
                     login_page.get()
                 except LoginException as er:
-#                    print("Could not log in L2Admin. Check your params")
+                #                    print("Could not log in L2Admin. Check your params")
                     raise er
                 else:
                 # пробуем еще раз получить страницу
@@ -55,14 +55,14 @@ class L2AdminFacade():
     logger = None
     support = None
 
-    def __init__(self):
+    def __init__(self, support):
         UrlCreator.setFactory(Lineage2UrlCreatorFactory())
         Adaptor.setFactory(Lineage2AdaptorFactory())
         Initializer.setFactory(Lineage2InitializerFactory())
         Receiver.setFactory(Lineage2ReceiverFactory())
         Parser.setFactory(Lineage2ParserFactory())
         Handler.setFactory(Lineage2HandlerFactory())
-        self.support = EuroSupport(login='bulat.fattahov', password='1qaz2wsx')
+        self.support = support
 
 
     @log_admin()
@@ -71,16 +71,17 @@ class L2AdminFacade():
 
     # gets adena count
     @tryToLoggedIn()
-    def get_adena(self):
+    def get_adena(self, serverId):
         page = Page(self.support, PageType.AMOUNT_BY_ITEM_TYPE_AND_SERVER)
         params = {
             "keyword": 57,
             "variationType": "includeVariation",
             "viewType": "amountSum",
-            "search": "Search"}
+            "search": "Search",
+            "WorldId": serverId}
         amount = page.get(params)
         return amount
 
 
-l2facade = L2AdminFacade()
-print l2facade.get_adena()
+#l2facade = L2AdminFacade()
+#print l2facade.get_adena()
