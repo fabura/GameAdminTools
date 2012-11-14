@@ -11,10 +11,18 @@ __author__ = 'bulat.fattahov'
 
 class Lineage2UrlCreatorFactory(FromDictFactory):
     names = {PageType.PAGE_WITHOUT_INITIALIZATION: 'WithoutInitializationUrlCreator',
+             PageType.CHANGE_CHARACTER: "ChangeCharacterUrlCreator",
+             PageType.CHANGE_JOB: "ChangeCharacterUrlCreator",
+             PageType.APPROVE_REQUEST: "ApproveRequestUrlCreator",
+             PageType.APPROVE_REQUEST_SECOND: "ApproveRequestSecondUrlCreator",
              PageType.LIST_LOG: "ListLogUrlCreator"}
 
     UrlCreator.urlNameMap = {
         PageType.LOGIN_PAGE: "/L2Admin/Login.aspx",
+        PageType.CHANGE_CHARACTER: "/L2Admin/Char/ModifyCharacter.aspx",
+        PageType.CHANGE_JOB: "/L2Admin/Char/ChangeSubJob.aspx",
+        PageType.APPROVE_REQUEST : "/L2Admin/Request/ViewModifyCharRequest.aspx",
+        PageType.APPROVE_REQUEST_SECOND : "/L2Admin/Request/ApproveRequest.aspx",
         PageType.PAGE_WITHOUT_INITIALIZATION: "",
         PageType.LIST_LOG: "/L2Admin/Log/ListLog.aspx",
         PageType.ENTER_WORLD_BY_IP: "/L2Admin/Log/ListLog.aspx",
@@ -70,3 +78,32 @@ class ListLogUrlCreator(UrlCreator):
                 page_number = params['page_number']
                 linkPattern = 'PageIndex=\d+'
                 return re.sub(linkPattern, 'PageIndex=' + page_number, self.naviUrl)
+
+
+class ChangeCharacterUrlCreator(Lineage2DefaultUrlCreator):
+    def createUrl(self, params):
+        url_base =  Lineage2DefaultUrlCreator.createUrl(self, params)
+        if "CharName" in params:
+            url_base += "&CharName=" + (str)(params["CharName"])
+
+        if 'CharId' in params:
+            return url_base + "&CharId=" + (str)(params['CharId'])
+        else:
+            raise InternalException(message="CharId is required!")
+
+
+class ApproveRequestUrlCreator(Lineage2DefaultUrlCreator):
+    def createUrl(self, params):
+        url_base = Lineage2DefaultUrlCreator.createUrl(self, params)
+        if "id" in params:
+            return  url_base + "&id=" + (str)(params["id"])
+        else:
+            raise  InternalException(message="Id is required!")
+
+class ApproveRequestSecondUrlCreator(Lineage2DefaultUrlCreator):
+    def createUrl(self, params):
+        url_base =  Lineage2DefaultUrlCreator.createUrl(self, params)
+        if "id" in params:
+            return url_base + "&RequestId=" + (str)(params["id"]) + "&RetUrl=" + self.page.support.getBaseUrl()
+        else:
+            raise InternalException(message="Id is required!")

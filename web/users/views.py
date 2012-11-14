@@ -68,3 +68,6 @@ def user_info(request):
     c['form'] = form
     return render_to_response('users/info.html', c)
 
+@login_required(login_url='login')
+def index(request):
+     redirect('/index')

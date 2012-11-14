@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/style.css" />
+
+    <title>{% block title %}Customer Service Tool{% endblock %}</title>
+</head>
+
+<body>
+<div id="sidebar">
+    {% block sidebar %}
+        <ul>
+            <li><a href="/monitoring/Kain">Kain</a></li>
+            <li><a href="/monitoring/Erica">Erica</a></li>
+            <li><a href="/monitoring/Airin">Airin</a></li>
+            <li><a href="/monitoring/Atlant">Atlant</a></li>
+            <li><a href="/monitoring/Cadmus">Cadmus</a></li>
+            <li><a href="/monitoring/Athebaldt">Athebaldt</a></li>
+            <li><a href="/monitoring/BlackBIrd">BlackBIrd</a></li>
+            <li><a href="/monitoring/Ramsheart">Ramsheart</a></li>
+            <li><a href="/monitoring/Esthus">Esthus</a></li>
+            <li><a href="/monitoring/Vasper">Vasper</a></li>
+            <li><a href="/monitoring/Lancer">Lancer</a></li>
+            <li><a href="/monitoring/Waytrel">Waytrel</a></li>
+            <li><a href="/monitoring/PVP">PVP</a></li>
+            <li><a href="/monitoring/Van Holter">Van Holter</a></li>
+            <li><a href="/monitoring/Desperion">Desperion</a></li>
+            <li><a href="/monitoring/Faris">Faris</a></li>
+            <li><a href="/monitoring/PTS">PTS</a></li>
+        </ul>
+    {% endblock %}
+</div>
+
+<div id="errorbar">
+    {% block errors %}
+    {% endblock %}
+</div>
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>

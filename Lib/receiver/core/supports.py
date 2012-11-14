@@ -52,8 +52,7 @@ class EuroSupport(Support):
 class RuSupport(Support):
     def __init__(self, login, password):
         Support.__init__(self, login, password)
-        #        todo u'добавить адрес русской админки'
-        self._baseUrl = 'http://10.64.144.50'
+        self._baseUrl = 'https://10.33.148.24'
 
 
 #======================================================

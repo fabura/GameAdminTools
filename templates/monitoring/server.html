@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}My amazing blog{% endblock %}
+
+{% if errors %}
+    {% block errors %}
+        <span>{{ errors }}</span>
+    {% endblock %}
+{% endif %}
+
+{% block content %}
+    <H2>Статистика для сервера {{ server }}</H2>
+    <style type="text/css">
+    body{
+        font-family: Tahoma;
+        font-size: 14px;
+    }
+        .error_max {
+            background: red;
+        }
+
+        .error_min {
+            background: green;
+        }
+
+        .norm {
+            background: #808080
+        }
+
+        #content {
+            float: left
+        }
+
+        #sidebar {
+            float: left;
+            width: 10%;
+        }
+
+        #errorbar {
+            background: red;
+        }
+
+        .right {
+            float: right;
+            margin-left: 75%;
+            height: 0;
+            width: 25%;
+        }
+
+        td, th {
+            padding: 5px;
+            font-family: Tahoma;
+            font-size: 14px;
+
+        }
+    </style>
+
+    <div class="right">
+        <form action="{{ request.path }}" method="post">
+            {% csrf_token %}
+            <p><label for="limits.max">Максимальный порог:</label>
+                <input id="limits.max" type="text" name="limits.max" maxlength="100" value="{{ limits.max }}"/></p>
+
+            <p><label for="limits.min">Минимальный порог:</label>
+                <input type="text" name="limits.min" id="limits.min" value="{{ limits.min }}"/></p>
+            <input type="submit" value="Сохранить"/>
+        </form>
+        <form action="{{ request.path }}" method="get">
+            <p><label for="date_from">От даты:</label>
+                <input id="date_from" type="text" name="date_from" maxlength="100" value="{{ date_from|date:"Y-m-d" }}"/></p>
+
+            <p><label for="date_to">До даты:</label>
+                <input type="text" name="date_to" id="date_to" value="{{ date_to|date:"Y-m-d" }}"/></p>
+            <input type="submit" value="Сохранить"/>
+        </form>
+    </div>
+
+    <table border="1px">
+        <thead>
+        <tr>
+            <th>date</th>
+            <th>diff</th>
+            <th>total</th>
+        </tr>
+        </thead>
+        {% for stat in stats %}
+            <tr class="
+                {% if stat.diff > limits.max %}
+                    error_max
+                {% else %}
+                 {% if stat.diff < limits.min %}
+                    error_min
+                {% else %}
+                    norm
+                {% endif %}{% endif %}">
+                <td>{{ stat.date|date:"Y-m-d h:i" }}</td>
+                <td>{{ stat.diff|intspace }} </td>
+                <td>{{ stat.value|intspace }} </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

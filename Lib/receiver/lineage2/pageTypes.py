@@ -24,3 +24,7 @@ class PageType(object):
     LIST_REQUEST = "listRequest"
     FIND_ITEM = "findItem"
     SEIZE_ITEM = "seizeItem"
+    CHANGE_CHARACTER = "changeCharacter"
+    CHANGE_JOB = "changeJob"
+    APPROVE_REQUEST = "approveRequest"
+    APPROVE_REQUEST_SECOND = "approveRequest2"
