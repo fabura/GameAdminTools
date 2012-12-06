@@ -1,14 +1,14 @@
 # coding=utf-8
-import datetime
 import re
-import time
+import datetime
 from django.core.context_processors import csrf
 from django.shortcuts import render_to_response
 from django.template.defaulttags import register
+from django.utils.datastructures import SortedDict
 from django.utils.encoding import force_unicode
 from django.views.generic.simple import redirect_to
 from L2Admin.models import Settings
-from monitoring.models import AdenaLog
+from monitoring.models import AdenaLog, Server
 
 __author__ = 'bulat.fattahov'
 
@@ -60,52 +60,40 @@ def initSettings():
 def index(request):
     data = {}
     data.update(csrf(request))
-    try:
-        date_from = datetime.datetime(*(time.strptime(request.GET["date_from"], "%Y-%m-%d %H:%M"))[:5])
-    except:
-        try:
-            date_from = datetime.datetime(*(time.strptime(request.GET["date_from"], "%Y-%m-%d"))[:3])
-        except:
-            date_from = datetime.date.today()
-    data["date_from"] = date_from
-
-    try:
-        date_to = datetime.datetime(*(time.strptime(request.GET["date_to"], "%Y-%m-%d %H:%M"))[:5])
-    except:
-        try:
-            date_to = datetime.datetime(*(time.strptime(request.GET["date_to"], "%Y-%m-%d"))[:3])
-        except:
-            date_to = datetime.date.today() + datetime.timedelta(days=1)
-    data["date_to"] = date_to
-
+    date_from = datetime.datetime.now() - datetime.timedelta(hours=2)
+    date_to = datetime.datetime.now()
 
     max_setting, min_setting = initSettings()
-    data["limits"] = {"max": (int)(max_setting.value), "min": (int)(min_setting.value)}
+    data["limits"] = {"max": int(max_setting.value), "min": int(min_setting.value)}
 
-    stats = AdenaLog.objects.filter(date__gt=(str)(date_from), date__lt=(str)(date_to))\
+    stats = AdenaLog.objects.filter(date__gt=str(date_from), date__lt=str(date_to))\
     .extra(select={'rounded_date': r'DATE_ADD( DATE_FORMAT(`date`, "%%Y-%%m-%%d %%H:%%i:00"),'
                                    ' INTERVAL IF(SECOND(`date`) < 30, 0, 1) MINUTE    )'})\
-    .order_by('rounded_date', 'server')
+    .order_by('rounded_date', 'server__id')
 
-    grouped_stats = {}
+    data['servers'] = {x.id: x.name for x in Server.objects.filter(support__name='ru').order_by('id')}
+    data['server_names'] = [data['servers'][name] for  name in sorted(data['servers'])]
+#    i = 0
+    indexes = {x: index for index, x in enumerate(sorted(data['servers']))}
+    empty_row = [0 for x in indexes]
+
+    grouped_stats = SortedDict()
     if stats:
         date = None
-        prev = _createEmptyStatRow(default=0)
+        prev = empty_row[:]
         for stat in stats:
             if stat.rounded_date != date:
                 date = stat.rounded_date
-                grouped_stats[date] = _createEmptyStatRow()
+                grouped_stats[date] = empty_row[:]
+            number = indexes[stat.server_id]
             value = stat.value
-            diff = value - prev[stat.server_id]
-            prev[stat.server_id] = value
-            grouped_stats[date][stat.server_id] = {"value": value, "diff": diff}
+            diff = value - prev[number]
+            prev[number] = value
+            grouped_stats[date][number] = {"value": value, "diff": diff}
 
     data['stats'] = grouped_stats
+
     return render_to_response("monitoring/index.html", data)
-
-
-def _createEmptyStatRow(default=None):
-    return {x:default for x in (3, 5, 13, 22, 43, 44, 45, 46, 47, 48, 49, 51, 60, 61, 64)}
 
 
 def savesettings(request):
